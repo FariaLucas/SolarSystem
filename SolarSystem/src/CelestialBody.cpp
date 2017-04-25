@@ -16,10 +16,6 @@ void CelestialBody::Draw(){
 	imagem.draw(0, 0);
 	ofPopMatrix();
 
-	/*ofPushMatrix();
-	ofRotateZ((m_angle));
-	GetImage().draw(GetPosition());
-	ofPopMatrix();*/
 }
 
 void CelestialBody::Update(double angle){
