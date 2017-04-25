@@ -14,6 +14,7 @@ void ofApp::setup(){
 	Moon = new CelestialBody(MoonPosition, "Moon.png", 200);
 	ofSetFrameRate(60);
 
+
 }
 
 //--------------------------------------------------------------
