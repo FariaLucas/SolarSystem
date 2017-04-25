@@ -13,6 +13,7 @@ void ofApp::setup(){
 	Planet = new CelestialBody(PlanetPosition, "Planet.png", 0);
 	Moon = new CelestialBody(MoonPosition, "Moon.png", 200);
 	ofSetFrameRate(60);
+
 }
 
 //--------------------------------------------------------------
