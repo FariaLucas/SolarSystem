@@ -2,15 +2,20 @@
 #include "ofMain.h"
 
 class CelestialBody {
-private:
+
+public:
+
 	ofVec2f m_position;
 	ofImage m_img;
-	double m_angle = 0;
-public:
-	CelestialBody(ofVec2f Position, string path, double InitialAngle);
+	float m_period;
+	double m_mass, m_radius;
+	ofVec2f m_anchor;
+
+
+	CelestialBody(ofVec2f Position, string path, float Time, double mass, double radius);
 
 	void Draw();
-	void Update(double angle);
+	void Update(CelestialBody* body);
 
 	ofVec2f GetPosition();
 	ofImage GetImage();

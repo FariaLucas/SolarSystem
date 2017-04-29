@@ -1,9 +1,11 @@
 #pragma once
 #include "CelestialBody.h"
 #include "ofMain.h"
+#include "Asteroid.h"
+
 
 class ofApp : public ofBaseApp{
-
+private:
 	public:
 		void setup();
 		void update();
@@ -21,9 +23,8 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 		
-		CelestialBody* Sun;
-		CelestialBody* Planet;
-		CelestialBody* Moon;
+		vector <Asteroid*> Asteroids;
+		vector <CelestialBody*> Bodys;
 
 		ofVec2f SunPosition;
 		ofVec2f PlanetPosition;
@@ -33,6 +34,8 @@ class ofApp : public ofBaseApp{
 
 		double beta = 0;
 		double alpha = 0;
+
+
 
 
 };

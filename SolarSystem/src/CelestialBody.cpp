@@ -1,9 +1,14 @@
 #include "CelestialBody.h"
 
-CelestialBody::CelestialBody(ofVec2f Position, string path, double InitialAngle){
+CelestialBody::CelestialBody(ofVec2f Position, string path, float Time, double mass, double radius){
+
 	SetPosition(Position);
 	m_img.load(path);
-	m_angle = InitialAngle;
+	m_period = Time;
+	m_anchor.set(GetPosition());
+	m_mass = mass;
+	m_radius = radius;
+	
 }
 
 void CelestialBody::Draw(){
@@ -12,15 +17,17 @@ void CelestialBody::Draw(){
 	imagem.setAnchorPercent(0.5, 0.5);
 	ofPushMatrix();
 	ofTranslate(GetPosition());
-	ofRotateZ(ofRadToDeg(m_angle));
 	imagem.draw(0, 0);
 	ofPopMatrix();
 
 }
 
-void CelestialBody::Update(double angle){
-	m_angle -= angle;
-	m_angle = m_angle < 0 ? 360 : m_angle;
+void CelestialBody::Update(CelestialBody* body){
+
+
+	m_anchor.rotate(m_period);
+	m_position = m_anchor;
+	m_position += body->GetPosition();
 }
 
 ofVec2f CelestialBody::GetPosition(){
